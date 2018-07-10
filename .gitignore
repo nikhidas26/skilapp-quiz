@@ -35,6 +35,10 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
+bower_components
+tools/gulp-tasks/cldr/cldr-data/
+bazel-*
+e2e_test.*
 
 # TypeScript v1 declaration files
 typings/
@@ -59,3 +63,27 @@ typings/
 
 # next.js build output
 .next
+
+# Include when developing application packages.
+pubspec.lock
+.c9
+.idea/
+.settings/
+*.swo
+modules/.settings
+.bazelrc
+.vscode
+modules/.vscode
+
+# Don't check in secret files
+*secret.js
+
+# Ignore npm/yarn debug log
+npm-debug.log
+yarn-error.log
+
+# build-analytics
+.build-analytics
+
+# rollup-test output
+/modules/rollup-test/dist/
