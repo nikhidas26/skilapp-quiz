@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-quiz',
@@ -15,7 +16,7 @@ export class QuizComponent implements OnInit {
   options;
   x: string = "";
 
-  constructor() {
+  constructor(private router: Router) {
     this.options = [
       {value: "a", correct: false},
       {value: "b", correct: false},
@@ -40,6 +41,8 @@ export class QuizComponent implements OnInit {
     this.bool = false;
     // set http again
     // equal with question, options
+    // perform this action, only when you are done with all the questions
+    this.router.navigateByUrl('/result');
    }
 
   ngOnInit() {

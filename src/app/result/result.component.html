@@ -1,0 +1,26 @@
+<div class="card text-center">
+    <div class="card-header">
+      <h3>{{pageTitle}}</h3>
+    </div>
+    <div class="card-body">
+
+        <h5 class="card-title">And your score is: </h5>
+
+        <div class="card-text">
+
+            <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" 
+            aria-valuenow="percentageResult + '%'" aria-valuemin="0" aria-valuemax="100" 
+            [style.width]="percentageResult + '%'">
+                {{percentageResult}} %
+              </div>
+          </div>
+      </div>
+
+      <div class="card-footer">
+          <a [routerLink]="['/quiz']"><button class="btn btn-primary result-button"> Reattempt Quiz </button></a>
+
+          <a [routerLink]="['/']"><button class="btn btn-success result-button"> Home </button></a>
+
+      </div>
+    </div>
+  

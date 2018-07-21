@@ -1,0 +1,22 @@
+<div class="card">
+  <div class="card-header">
+    {{pageTitle}}
+  </div>
+  <div class="card-body">
+    <div class="container-fluid">
+      
+      <div class="quiz-rules">
+        <ul class="list-group">
+          <li class="list-group-item">There is no time limit for quiz.</li>
+          <li class="list-group-item">Once the quiz is started, you cannot leave in the middle. It has to be completed.</li>
+          <li class="list-group-item">Make sure you are using a computer with good wifi.</li>
+        </ul>
+      </div>
+
+      <div class="text-center">
+          <a [routerLink]="['/quiz']"><button class="btn btn-primary" (click)='startQuiz()'> Start Quiz </button></a>
+      </div>
+
+    </div>
+  </div>
+</div>
