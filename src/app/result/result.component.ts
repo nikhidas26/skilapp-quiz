@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-result',
@@ -8,11 +9,22 @@ import { Component, OnInit } from '@angular/core';
 export class ResultComponent implements OnInit {
 
   pageTitle: String = 'Drumroll - Results!';
-  percentageResult: number = 100;
+  percentageResult: number;
+  reviewResults;
 
   // make http calls to the result api in the back end
 
-  constructor() { }
+  constructor( private httpClient: HttpClient) {
+    this.httpClient.get('http://localhost:9090/results/12')
+      .subscribe((data) => {
+        this.percentageResult = parseInt(data.overallResult);
+      });
+
+      this.httpClient.get('http://localhost:9090/results/test/12')
+      .subscribe((data) => {
+        this.reviewResults = data;
+      });
+  }
 
   ngOnInit() {
   }

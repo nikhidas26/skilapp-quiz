@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { QuizComponent } from './quiz/quiz.component';
@@ -16,12 +17,14 @@ import { ResultComponent } from './result/result.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot([
       { path: 'quiz', component: QuizComponent},
       { path: 'welcome', component: WelcomeComponent},
       { path: 'result', component: ResultComponent},
       { path: '', redirectTo: 'welcome', pathMatch: 'full' }
     ])
+
   ],
   providers: [],
   bootstrap: [AppComponent]
