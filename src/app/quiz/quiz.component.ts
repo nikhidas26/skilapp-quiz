@@ -16,7 +16,6 @@ export class QuizComponent implements OnInit {
   // bool: boolean = false
   options: any;
   isComplete: boolean = false;
-  questionData: IQuestion;
   buttonEnabled: boolean = true;
   // x: string = "";
 
