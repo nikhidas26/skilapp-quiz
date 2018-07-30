@@ -1,15 +1,30 @@
 <div class="container">
 
     <h3>{{question}} </h3>
-
-<table>
-    <tr *ngFor="let option of options; let i = option"  (click)="radioButtonSelect(option)">
-        <td ><input type="radio" name="radioGroup" value="{{option.value}}" >
+    <br>
+<table *ngIf="isradioButton">
+     <tr  *ngFor="let option of options; let i = option"  (click)="radioButtonSelect(option)">
+        <td > <mat-radio-button name="radioGroup" value="{{option.value}}" ></mat-radio-button>             
     </td>
-    <td class="optionValue"><i>{{option.value}}</i></td>
+    <td class="optionValue">{{option.value}}</td>    
+    
 </table>
-    <button *ngIf="!isComplete" type="button" class="btn btn-success" [disabled]="buttonEnabled" (click) = "nextQuestion()" >Next</button>
-    <button *ngIf="isComplete" type="button" class="btn btn-success" [disabled]="buttonEnabled" (click) = "submitQuiz()">
-    Submit
-    </button>
+<table *ngIf="ischeckBox">
+        <tr  *ngFor="let option of options; let i = option"  (click)="checkBox(option)">
+       
+       <td> <mat-checkbox>{{option.value}}</mat-checkbox></td>    
+   </table>
+  
+    <div *ngIf="istextArea">
+        
+        <form class="example-form">     
+            <mat-form-field class="example-full-width">
+        <textarea matInput placeholder="Your answer" (input)="inputGiven($event.target.value)" ></textarea>
+    </mat-form-field>
+</form>
+    </div>
+    
+<br>
+    <button *ngIf="!isComplete" mat-button type="button" class="btn btn-success" [disabled]="disableButton" (click) = "nextQuestion()" >Next</button>
+    <button *ngIf="isComplete" mat-button type="button" class="btn btn-success" [disabled]="disableButton" (click) = "submitQuiz()"> Submit  </button>
 </div>
